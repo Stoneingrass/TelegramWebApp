@@ -3,12 +3,17 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    document.body.style.background='red'
-    window.Telegram.WebApp.setHeaderColor("#0000FF")
+    document.body.style.background = '#006600'
+    window.Telegram.WebApp.setHeaderColor("#0000aa")
+    document.write(window.Telegram.WebApp.platform)
+    document.write(window.Telegram.WebApp.themeParams.text_color)
+    document.body.style.color = window.Telegram.WebApp.themeParams.text_color
+
 </script>
 <h1><%= "Welcome to NUOP!" %>
 </h1>

@@ -36,6 +36,28 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
+<!--        C:\Users\asdfe\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.7\sqlite-jdbc-3.43.0.0.jar-->
+            <dependency>
+                <groupId>org.xerial</groupId>
+                <artifactId>sqlite-jdbc</artifactId>
+                <version>3.43.0.0</version>
+            </dependency>
+
+<!--        TODO если что добавить js библиотеку в зависимости-->
+
     </dependencies>
 
     <build>

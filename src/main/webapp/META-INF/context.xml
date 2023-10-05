@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Context>
+    <Resource name="jdbc/SQLiteDB" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              driverClassName="org.sqlite.JDBC"
+              url="/C:/Users/asdfe/IdeaProjects/TelegramWebApp/src/main/assets/db.sqlite"/>
+</Context>
