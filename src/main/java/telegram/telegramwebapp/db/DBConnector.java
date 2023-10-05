@@ -16,17 +16,17 @@ public class DBConnector {
 
 
     //temp
-    public static void getConnection() throws SQLException, NamingException {
-        if (connection == null || connection.isClosed()) {
-            Context initContext = new InitialContext();
-            Context envContext = (Context) initContext.lookup("java:/comp/env");
-            DataSource dataSource = (DataSource) envContext.lookup("jdbc/SQLiteDB");
-                connection = dataSource.getConnection();
-
-        }
-
-        statement = connection.createStatement();
-    }
+//    public static void getConnection() throws SQLException, NamingException {
+//        if (connection == null || connection.isClosed()) {
+//            Context initContext = new InitialContext();
+//            Context envContext = (Context) initContext.lookup("java:/comp/env");
+//            DataSource dataSource = (DataSource) envContext.lookup("jdbc/SQLiteDB");
+//                connection = dataSource.getConnection();
+//
+//        }
+//
+//        statement = connection.createStatement();
+//    }
 
 
 

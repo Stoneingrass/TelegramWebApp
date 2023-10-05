@@ -24,12 +24,12 @@ public class StartServlet extends HttpServlet {
 //        } catch (ClassNotFoundException | SQLException e) {
 //            throw new RuntimeException(e);
 //        }
-
-        try {
-            DBConnector.getConnection();
-        } catch (SQLException | NamingException e) {
-            throw new RuntimeException(e);
-        }
+//
+//        try {
+//            DBConnector.getConnection();
+//        } catch (SQLException | NamingException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 

@@ -15,12 +15,6 @@ public class InfoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-//
-//        try {
-//            request.setAttribute("name", DBConnector.getData().get(0));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
         request.setAttribute("name", "asd");
         request.setAttribute("course", "2");
         request.setAttribute("group", "AD-212");
