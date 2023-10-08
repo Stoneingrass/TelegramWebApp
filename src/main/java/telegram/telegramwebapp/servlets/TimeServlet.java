@@ -1,4 +1,4 @@
-package telegram.telegramwebapp;
+package telegram.telegramwebapp.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
