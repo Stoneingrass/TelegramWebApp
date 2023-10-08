@@ -19,22 +19,25 @@ public class StartServlet extends HttpServlet {
 
     public void init() {
         //db connect
-//        try {
-//            DBConnector.connect("jdbc:sqlite:src/main/assets/db.sqlite");
-//        } catch (ClassNotFoundException | SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        try {
-//            DBConnector.getConnection();
-//        } catch (SQLException | NamingException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            DBConnector.connect("jdbc:sqlite:db.sqlite");
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+        try {
+            DBConnector.getConnection();
+        } catch (SQLException | NamingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
+        try {
+            request.setAttribute("x", DBConnector.getData0());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

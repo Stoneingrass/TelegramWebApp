@@ -5,27 +5,23 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import telegram.telegramwebapp.db.DBConnector;
 
-import javax.naming.NamingException;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Date;
 
-@WebServlet(name = "timeServlet", value = "/time")
+@WebServlet(name = "JSServlet", value = "/js")
+public class JSServlet extends HttpServlet {
 
-public class TimeServlet extends HttpServlet {
+
     public void init() {
-
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        Date date = new Date();
-        request.setAttribute("date", date.toString());
-        request.getRequestDispatcher("time.jsp").forward(request, response);
+
+        request.getRequestDispatcher("eee/index.jsp").forward(request, response);
     }
 
     public void destroy() {
     }
+
 
 }

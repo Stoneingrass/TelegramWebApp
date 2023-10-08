@@ -15,18 +15,15 @@ public class DBConnector {
     private static ResultSet resultSet;
 
 
-    //temp
-//    public static void getConnection() throws SQLException, NamingException {
-//        if (connection == null || connection.isClosed()) {
-//            Context initContext = new InitialContext();
-//            Context envContext = (Context) initContext.lookup("java:/comp/env");
-//            DataSource dataSource = (DataSource) envContext.lookup("jdbc/SQLiteDB");
-//                connection = dataSource.getConnection();
-//
-//        }
-//
-//        statement = connection.createStatement();
-//    }
+    public static void getConnection() throws SQLException, NamingException {
+        if (connection == null || connection.isClosed()) {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
+            DataSource dataSource = (DataSource) envContext.lookup("jdbc/SQLiteDB");
+                connection = dataSource.getConnection();
+        }
+        statement = connection.createStatement();
+    }
 
 
 
@@ -54,8 +51,17 @@ public class DBConnector {
         return list;
     }
 
+    public static int getData0() throws SQLException {
+        resultSet = statement.executeQuery("SELECT x FROM t");
+
+        return resultSet.getInt("x");
+    }
+
     public static void writeData(int x, int y) throws SQLException {
         statement.execute("INSERT INTO t ('x', 'y') VALUES (" + x + "," + y + ");");
+
+//        PreparedStatement statement1 = connection.prepareStatement("INSERT INTO t ('x', 'y') VALUES (?, ?);");
+//        statement1.set
     }
 
     public static void closeDB() throws SQLException {

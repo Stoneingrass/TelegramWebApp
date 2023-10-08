@@ -17,6 +17,7 @@
 </script>
 <h1><%= "Welcome to NUOP!" %>
 </h1>
+<p><%=request.getAttribute("x")%></p>
 <p><a href="hello-servlet">See student info (me).</a></p>
 <p><a href="info">See student info (alternative).</a></p>
 <p><a href="time">Current server time.</a></p>
