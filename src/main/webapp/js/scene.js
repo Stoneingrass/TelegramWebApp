@@ -55,8 +55,7 @@ window.onload = function () {
 
     document.body.addEventListener('click', () => {
         if (scene.getObjectByName("dice6").visible === true) {
-            setDiceValue("dice6", 4)
-
+            rollDice("dice6")
         } else {
             scene.getObjectByName("dice6").visible = true;
         }
@@ -177,11 +176,22 @@ function rotateDice(diceName,
         }
         if (isEnded) {
             clearInterval(rotateInterval);
-            //test
-            console.log(
-                scene.getObjectByName(diceName).rotation.x%(Math.PI*2) / (2 * Math.PI) * 360,
-                scene.getObjectByName(diceName).rotation.y%(Math.PI*2) / (2 * Math.PI) * 360,
-                scene.getObjectByName(diceName).rotation.z%(Math.PI*2) / (2 * Math.PI) * 360);
+        }
+    }
+}
+
+function moveDice(diceName, time) {
+    scene.getObjectByName(diceName).position.z += 1;
+
+    var t = 0;
+    const moveInterval = setInterval(move, framesPeriodMs);
+
+    function move() {
+
+
+        t += framesPeriodMs;
+        if (t >= time) {
+            clearInterval(moveInterval)
         }
     }
 }
@@ -200,7 +210,30 @@ function setDiceValue(diceName, value) {
 
     trueDiceRotationRequired.subVectors(diceValueVector, trueDiceRotation);
 
+    const rotationValue = new THREE.Vector3(
+        Math.floor(Math.random() * 3 + 3),
+        Math.floor(Math.random() * 3 + 3),
+        Math.floor(Math.random() * 3 + 3));
+
+    const rotationTime = new THREE.Vector3(
+        1000 * 4 / rotationValue.x,
+        1000 * 4 / rotationValue.y,
+        1000 * 4 / rotationValue.z
+    );
+
+
     rotateDice(diceName,
-        trueDiceRotationRequired.x, trueDiceRotationRequired.y, trueDiceRotationRequired.z,
-        1000, 1000, 1000);
+        trueDiceRotationRequired.x + 360 * rotationValue.x,
+        trueDiceRotationRequired.y + 360 * rotationValue.y,
+        trueDiceRotationRequired.z + 360 * rotationValue.z,
+        rotationTime.x, rotationTime.y, rotationTime.z);
+
+    moveDice(diceName, (trueDiceRotationRequired.x + 360 * rotationValue.x) / 360 * (rotationTime.x))
+}
+
+
+function rollDice(diceName) {
+    let diceValue = Math.floor(Math.random() * 6) % 6 + 1;
+
+    setDiceValue(diceName, diceValue)
 }
