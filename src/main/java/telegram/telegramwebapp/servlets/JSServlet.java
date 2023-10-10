@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "JSServlet", value = "/js")
+@WebServlet(name = "JSServlet", value = "")
 public class JSServlet extends HttpServlet {
 
 
@@ -17,7 +17,7 @@ public class JSServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.getRequestDispatcher("eee/index.jsp").forward(request, response);
+        request.getRequestDispatcher("js.jsp").forward(request, response);
     }
 
     public void destroy() {

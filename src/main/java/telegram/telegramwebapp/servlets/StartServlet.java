@@ -14,22 +14,17 @@ import java.sql.SQLException;
 import java.util.Date;
 
 //TODO заменить на более подходящий механизм вызова?
-@WebServlet(name = "startServlet", value = "")
+@WebServlet(name = "startServlet", value = "/start")
 public class StartServlet extends HttpServlet {
 
     public void init() {
         //db connect
         try {
-            DBConnector.connect("jdbc:sqlite:db.sqlite");
+            DBConnector.connect("jdbc:sqlite:resources/db/db.sqlite");
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
 
-        try {
-            DBConnector.getConnection();
-        } catch (SQLException | NamingException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
