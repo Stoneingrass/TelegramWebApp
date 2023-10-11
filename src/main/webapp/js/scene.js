@@ -190,7 +190,9 @@ function moveDice(diceName, time) {
         }
         else {
             scene.getObjectByName(diceName).position.z = 0;
+            clearInterval(moveInterval)
         }
+        console.log(scene.getObjectByName(diceName).position.z)
 
         // const k = 1/5;
         //
