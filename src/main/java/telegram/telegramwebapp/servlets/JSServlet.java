@@ -18,6 +18,7 @@ public class JSServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         request.getRequestDispatcher("js.jsp").forward(request, response);
+//        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     public void destroy() {
