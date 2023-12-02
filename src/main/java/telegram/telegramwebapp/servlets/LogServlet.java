@@ -7,17 +7,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import telegram.telegramwebapp.db.DBConnector;
 
-import javax.naming.NamingException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Date;
 
 //TODO заменить на более подходящий механизм вызова?
-@WebServlet(name = "startServlet", value = "")
-public class StartServlet extends HttpServlet {
+@WebServlet(name = "logServlet", value = "/log")
+public class LogServlet extends HttpServlet {
 
     public void init() {
         //db connect
@@ -43,6 +41,7 @@ public class StartServlet extends HttpServlet {
         // Устанавливаем тип содержимого для ответа
         response.setContentType("application/json");
 
+
         // Получаем поток для чтения данных из запроса
         BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
         StringBuilder jsonInput = new StringBuilder();
@@ -58,6 +57,8 @@ public class StartServlet extends HttpServlet {
         // Отправляем ответ обратно на клиент
         PrintWriter out = response.getWriter();
         out.println("{\"message\":\"Данные успешно приняты на сервере.\"}");
+
+
     }
 
     public void destroy() {

@@ -1,0 +1,48 @@
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    height: 100%;
+}
+
+.button-container div {
+    background-color: #3498db;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #87CEEB; /* Голубая граница */
+}
+
+.button-container h2 {
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container div:hover {
+    background-color: #2980b9;
+}
+
+.button-container div:active {
+    background-color: #1f618d;
+}

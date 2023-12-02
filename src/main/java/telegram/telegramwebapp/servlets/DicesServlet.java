@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "JSServlet", value = "")
-public class JSServlet extends HttpServlet {
+@WebServlet(name = "Dices", value = "/dices")
+public class DicesServlet extends HttpServlet {
 
 
     public void init() {
@@ -17,8 +17,10 @@ public class JSServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.getRequestDispatcher("js.jsp").forward(request, response);
-//        request.getRequestDispatcher("index.jsp").forward(request, response);
+        String diceNumber = request.getParameter("dice");
+        request.setAttribute("dice", diceNumber);
+
+        request.getRequestDispatcher("dices.jsp").forward(request, response);
     }
 
     public void destroy() {
